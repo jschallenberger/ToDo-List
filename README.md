@@ -5,6 +5,7 @@
 - Vite
 - CSS Modules
 - Phosphor Icons
+- TypeScript
 
 ## Concepts
 
