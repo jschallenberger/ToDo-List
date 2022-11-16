@@ -2,10 +2,13 @@ import styles from './ToDo.module.css'
 import { Trash } from 'phosphor-react'
 
 interface ToDoProps{
-    id: string;
+    id?: string;
+    text?: string;
+    onClickFunction:Function,
+    handleFinished: Function
 }
 
-export function ToDo({id} : ToDoProps){
+export function ToDo({id, text, onClickFunction, handleFinished} : ToDoProps){
     
     return(
         <div className={styles.todo}>
@@ -13,10 +16,11 @@ export function ToDo({id} : ToDoProps){
                 id={id}
                 className={styles.checkbox} 
                 type='checkbox'
+                onClick={()=>handleFinished(id)}
             />
             <label htmlFor={id}/>
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Incidunt dolor provident, doloribus, reprehenderit.</p>
-            <Trash size={24}/>
+            <p>{text}</p>
+            <Trash onClick={()=>onClickFunction(id)} size={24}/>
         </div>
     )
 }

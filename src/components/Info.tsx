@@ -1,16 +1,21 @@
 import styles from './Info.module.css'
 
-export function Info(){
+interface InfoProps{
+    createdTasks: number,
+    finishedTasks: number
+  }
+
+export function Info({createdTasks, finishedTasks} : InfoProps){
 
     return(
         <div className={styles.info}>
             <div className={styles.infoSide}>
                 <p>Created Tasks</p>
-                <span>0</span>
+                <span>{createdTasks}</span>
             </div>
             <div className={styles.infoSide}>
-                <p>Done</p>
-                <span>0</span>
+                <p>Finished</p>
+                <span>{finishedTasks} of {createdTasks}</span>
             </div>
         </div>
     )
